@@ -12,7 +12,8 @@ class Solution(object):
 		:rtype: int
 		"""				                	
 		total = ((abs(C-A) * abs(D-B)) + (abs(G-E) * abs(H-F)))
-		if E>=C or A>=G or B>=H or F>=D: // if not overlap
+		if E>=C or A>=G or B>=H or F>=D: # if not overlap
+		#if ((E>=C and F>=D) or (A>=G and B>=H) or (A>=G and F>=D) or (E>=C and B>=H)):
 			return total
 		
 		xl = max(A, E)                        
