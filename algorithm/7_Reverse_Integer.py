@@ -17,7 +17,7 @@ class Solution(object):
 
         reverse_out = sign *ans
 
-        if  ((reverse_out > 2147483647)or(reverse_out < -2147483646)): # handle 32-bit overflow            
+        if  ((reverse_out > 2147483647)or(reverse_out < -2147483648)): # handle 32-bit overflow            
             return 0
         else:
             return reverse_out
