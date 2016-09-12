@@ -12,10 +12,8 @@ class Solution(object):
             while n != 1:
                 if (n % 2 == 0):
                     n >>= 1
-                    step += 1
                 elif n == 3:
                     n = 2
-                    step += 1
                 else:
                     # The more tail zero numbers, the less steps.
                     if (self.countTailZero(n-1) > self.countTailZero(n+1)):
@@ -23,7 +21,7 @@ class Solution(object):
                     else:
                         n += 1
 
-                    step += 1
+                step += 1
 
             return step
 
