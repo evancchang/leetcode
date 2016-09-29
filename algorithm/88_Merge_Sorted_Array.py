@@ -7,7 +7,5 @@ class Solution(object):
         :type n: int
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
-        for i in xrange(n):
-            nums1[m+i] = nums2[i]
-            
-        nums1 = nums1.sort()
+        nums1[m:] = nums2[:n]
+        nums1 = nums1.sort()    
