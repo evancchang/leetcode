@@ -21,7 +21,7 @@ class Solution(object):
         if not p1:
             return head.next
         
-        # p1 and p2 move until the end
+        # move p1 and p2 at the same time until the end
         while p1.next:
             p1 = p1.next
             p2 = p2.next
