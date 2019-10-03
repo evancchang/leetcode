@@ -5,23 +5,20 @@ class Solution(object):
         :type str: str
         :rtype: bool
         """
-        words = str.split()
-        if len(pattern) != len(words):
+        s_list = str.split()
+        if len(pattern) != len(s_list):
             return False
-
         p_dict = {}
-
-        for p, w in zip(pattern, words):
-            if (p not in p_dict):
-                if w not in p_dict.values():
-                    p_dict[p] = w
-                else:
-                    return False
-
+        
+        for i in range(len(pattern)):
+            if pattern[i] not in p_dict.keys() and s_list[i] not in p_dict.values():
+                p_dict[pattern[i]] = s_list[i]
             else:
-                if p_dict[p] != w:
+                if pattern[i] not in p_dict.keys() and s_list[i] in p_dict.values():
                     return False
-
+                if p_dict[pattern[i]] != s_list[i]:
+                    return False         
+              
         return True
 
 t = Solution()
