@@ -1,32 +1,36 @@
 class NumArray(object):
+
     def __init__(self, nums):
         """
-        initialize your data structure here.
         :type nums: List[int]
         """
-        if len(nums):
-            # caculate the sum first.
-            self.nums = [0] * len(nums)
-            self.nums[0] = nums[0]
-
-            for idx in xrange(1, len(nums)):
-                # self.num[idx] = sumRange(0, idx)
-                self.nums[idx] = self.nums[idx-1] + nums[idx]
+        len_n = len(nums)
+        if len_n:
+            self.total_nums = [0] * len_n
+            self.total_nums[0] = nums[0]
+        
+            for i in range(1, len_n):
+                self.total_nums[i] = self.total_nums[i-1] + nums[i]
         else:
-            self.nums = [0]
+            self.total_nums = [0]
+        
 
     def sumRange(self, i, j):
         """
-        sum of elements nums[i..j], inclusive.
         :type i: int
         :type j: int
         :rtype: int
         """
         if i > 0:
-            # sumRange(2, 5) = sumRange(0, 5) - sumRange(0, 1)
-            return self.nums[j] - self.nums[i-1]
+            return self.total_nums[j] - self.total_nums[i-1]
         else:
-            return self.nums[j]
+            return self.total_nums[j]
+        
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(i,j)
 
 
 
