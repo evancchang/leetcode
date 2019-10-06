@@ -1,12 +1,10 @@
 class Solution(object):
     def reverseString(self, s):
         """
-        :type s: str
-        :rtype: str
+        :type s: List[str]
+        :rtype: None Do not return anything, modify s in-place instead.
         """
-        s = s[::-1]
-        return s
-
-t = Solution()
-print t.reverseString("Hello world")
-print t.reverseString("Hi Hi ")
+        
+        for i in range(0, len(s)/2):
+            s[i], s[len(s)-1-i] = s[len(s)-1-i], s[i]
+            
