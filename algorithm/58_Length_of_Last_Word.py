@@ -4,11 +4,9 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        s = s.split()
         if not s:
             return 0
-            
-        s = s.split()
-        if s:
-            return len(s[-1])
-        else:
-            return 0
+        
+        return len(s[-1])
+        
