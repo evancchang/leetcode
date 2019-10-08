@@ -4,27 +4,22 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
-        s = '1'
-        for i in xrange(1, n):
-            s = self.cal(s)            
-        return s
-
-    def cal(self, s):
-        counter = 1
-
-        tmp = s[0]
-        out = ""
-
-        for i in xrange(1, len(s)):
-            if tmp == s[i]:
-                counter +=1
-            else:
-                out += str(counter) + tmp
-                counter = 1
-                tmp = s[i]
-
-        out += str(counter) + tmp
-        return out
+        res = '1'
+        for i in range(n-1):
+            prev = res[0]
+            count = 1
+            ans = ""
+            for j in range(1, len(res)):
+                cur = res[j]
+                if prev != cur:
+                    ans += str(count) + str(prev)
+                    prev = cur
+                    count = 0
+                count += 1
+            res = ans + str(count) + str(prev)
+            
+        return res
+            
 
 t = Solution()
 print t.countAndSay(4)
