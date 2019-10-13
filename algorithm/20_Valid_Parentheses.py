@@ -1,20 +1,18 @@
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        stack = []
-        mapping = {')': '(', '}':'{', ']':'['}
+import collections
+class Solution:
+    def isValid(self, s: str) -> bool:
+        ch_map = {')':'(', '}':'{', ']':'['}
+        stack = collections.deque()
         
         for ch in s:
-            if ch in mapping.values():
+            if ch in ch_map.values():
                 stack.append(ch)
             else:
                 if not stack:
                     return False
                 
-                if stack.pop() != mapping[ch]:    
+                if ch_map[ch] != stack.pop():
                     return False
                 
         return not stack
+                
