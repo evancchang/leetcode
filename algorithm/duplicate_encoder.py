@@ -1,4 +1,4 @@
-def dup_encoder(s):
+def dup_encoder(s: str) -> str:
     char_count = {}
     s = s.lower()
     for c in s:
@@ -16,7 +16,7 @@ def dup_encoder(s):
 
     return encode_str
 
-print dup_encoder('din')
-print dup_encoder('recede')
-print dup_encoder('Success')
-print dup_encoder('(( @')d
+print(dup_encoder('din') == '(((')
+print(dup_encoder('recede') == '()()()')
+print(dup_encoder('Success') == ')())())')
+print(dup_encoder('(( @') == '))((')
