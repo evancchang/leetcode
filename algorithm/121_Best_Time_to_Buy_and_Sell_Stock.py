@@ -1,20 +1,14 @@
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
         if not prices:
             return 0
-
+        
         lowest_price = prices[0]
         profit = 0
-        total_days = len(prices)
-
-        for i in range(total_days):
-            profit = max(profit, prices[i] - lowest_price)
-            lowest_price = min(prices[i], lowest_price)
-
+        for day in range(1, len(prices)):
+            profit = max(profit, prices[day] - lowest_price)
+            lowest_price = min(lowest_price, prices[day])
+            
         return profit
 
 t = Solution()
