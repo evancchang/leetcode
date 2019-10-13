@@ -10,14 +10,21 @@ class Solution(object):
         ns = len(S)
         sk = ns % K
         ans_list = []
-        
+    
+ #       if sk != 0:
+ #           ans_list.append(S[:sk])
+ #           for i in range(sk, ns, K):
+ #               ans_list.append(S[i:i+K])
+ #       else:
+ #           for i in range(0, ns, K):
+ #               ans_list.append(S[i:i+K])
+
         if sk != 0:
             ans_list.append(S[:sk])
-            for i in range(sk, ns, K):
-                ans_list.append(S[i:i+K])
-        else:
-            for i in range(0, ns, K):
-                ans_list.append(S[i:i+K])
+        for i in range(sk, ns, K):
+            ans_list.append(S[i:i+K])
                 
         return '-'.join(ans_list)
-        
+
+t = Solution()
+print t.licenseKeyFormatting("2-5g-3-J", 2)
