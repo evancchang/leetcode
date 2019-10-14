@@ -1,18 +1,13 @@
-class Solution(object):
-    def containsNearbyDuplicate(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         if len(nums) < 2:
             return False
-            
-        hash_table = {}
-        for i, num in enumerate(nums):
-            if num in hash_table and (i-hash_table[num]<=k):
+        
+        h = {}
+        for i in range(len(nums)):
+            if nums[i] in h.keys() and (i - h[nums[i]] <= k):
                 return True
             else:
-                hash_table[num] = i
+                h[nums[i]] = i
                 
         return False
