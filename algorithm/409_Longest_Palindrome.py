@@ -5,7 +5,7 @@ class Solution:
         c = Counter(s)
         for k, v in c.items():
             resp += v // 2 * 2
-            if resp % 2 == 0 and v % 2 == 1:
+            if resp % 2 == 0 and v % 2 == 1: # only have 1 odd  
                 resp += 1
                 
         return resp
