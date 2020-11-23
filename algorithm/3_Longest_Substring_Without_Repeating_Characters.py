@@ -15,3 +15,16 @@ class Solution:
                 l = max(l, len(chars))
             
         return l
+
+class Solution2:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        ans = 0
+        ch_idx = {}
+        i = 0
+        for j, ch in enumerate(s):
+            if ch in ch_idx:
+                i = max(ch_idx[ch], i)
+            ans = max(ans, j - i + 1)
+            ch_idx[ch] = j + 1
+            
+        return ans
