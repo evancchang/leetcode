@@ -4,7 +4,6 @@ class Solution:
         s_list.reverse()
         new_s = ''
         for ch in s_list:
-            if ch.strip() != '':
-                new_s += ' ' + ch
+            new_s += ' ' + ch
 
         return new_s.strip()        
