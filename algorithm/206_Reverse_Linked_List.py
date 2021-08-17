@@ -13,11 +13,12 @@ class Solution(object):
         new_head = None
         
         while head:
-            p = head
+            tmp = head
             head = head.next
-            p.next = new_head
-            new_head = p
-            
+            tmp.next = new_head
+            new_head = tmp
+            new_head.next = tmp.next
+                    
         return new_head
         
         
