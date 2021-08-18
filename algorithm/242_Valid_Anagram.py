@@ -19,3 +19,7 @@ class Solution:
             return True
         else:
             return False
+
+ class Solution2:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
