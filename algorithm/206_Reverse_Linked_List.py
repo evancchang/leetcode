@@ -11,14 +11,13 @@ class Solution(object):
         :rtype: ListNode
         """
         new_head = None
-        
+
         while head:
             tmp = head
             head = head.next
             tmp.next = new_head
             new_head = tmp
-            new_head.next = tmp.next
-                    
+            
         return new_head
         
         
