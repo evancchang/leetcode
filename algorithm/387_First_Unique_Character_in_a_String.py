@@ -1,23 +1,16 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        h = {}
-        s = s.lower()
-        
-        for i in range(len(s)):
-            if s[i] not in h:
-                h[s[i]] = i
+        ch_count = {}
+
+        for ch in s:
+            if ch not in ch_count:
+                ch_count[ch] = 1
             else:
-                h[s[i]] = -1
-                
-        ans = float('inf')
-        for key, value in h.items():
-            if value != -1:
-                if ans > value:
-                    ans = value
-                    
-        if ans < float('inf'):
-            return ans
-        else:
-            return -1
+                ch_count[ch] += 1
+
+        for i in range(len(s)):
+            if ch_count[s[i]] == 1:
+                return i
+        return -1
         
             
