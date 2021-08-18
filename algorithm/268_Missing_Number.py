@@ -11,8 +11,7 @@ class Solution:
 class Solution2:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
-
-        total = (1 + n) * n / 2
-        ans = int(total - sum(nums))
+        total = (0 + n) * (n + 1) / 2        
+        ans = int(total) - sum(nums)
         
         return ans
