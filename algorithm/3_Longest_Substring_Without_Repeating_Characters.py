@@ -1,14 +1,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         left, right = 0, 0
-        chars = set()
+        chars = set() # use set to add/remove item, the bigO is O(1) average
         
         l = 0
         while left < len(s) and right < len(s):
             if s[right] in chars:
                 if s[left] in chars:
                     chars.remove(s[left])
-                left += 1
+                    left += 1
             else:
                 chars.add(s[right])
                 right += 1                
