@@ -22,6 +22,26 @@ class Solution(object):
         else:
             return reverse_out
 
-t = Solution()
-#print t.reverse(1534236469)
-print t.reverse(1)
+class Solution2:
+    def reverse(self, x: int) -> int:
+        if x > 0:
+            signed = 0
+        else:
+            signed = 1
+            x = abs(x)
+            
+        x_str = str(x)
+        x_list = [x for x in x_str]
+        x_list.reverse()
+        
+        x_str = ''.join(x_list)
+        x = int(x_str)
+          
+        if signed == 1:
+            x = -x
+    
+        if -2 ** 31 <= x <= (2 ** 31 - 1):
+            return x
+        else:
+            return 0        
+        
