@@ -1,22 +1,21 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        n = numRows + 1
-        ret = []
-        for i in range(1, n):
+        tri_list = []
+        
+        for i in range(1, numRows + 1):
             if i == 1:
-                ret.append([1])
+                tri_list.append([1])
             elif i == 2:
-                ret.append([1, 1])
+                tri_list.append([1,1])
             else:
-                prev = ret[i - 2] # ret[i - 1 - 1]
+                prev = tri_list[i - 1 - 1]
                 curr = [0] * i
                 curr[0] = prev[0]
-                for j in range(1, i - 1):
-                    curr[j] = prev[j] + prev[j - 1]
-                    
+                for j in range(len(prev) - 1):
+                    curr[j+1] = prev[j] + prev[j+1]
                 curr[-1] = prev[-1]
-                ret.append(curr)
-                
-        return ret
+                tri_list.append(curr)
+
+        return tri_list
                 
         
