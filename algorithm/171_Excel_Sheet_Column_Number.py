@@ -1,11 +1,10 @@
 class Solution:
     def titleToNumber(self, s: str) -> int:
-        ans = 0
-        for i, ch in enumerate(s):
-            ans *= 26
-            ans += ord(ch) - 64
-            
-        return ans
+        n = len(columnTitle)
+        total = 0
+        for i in range(n-1, -1, -1):
+            total += (ord(columnTitle[-i-1]) - ord('A') + 1) * (26 ** i)
+        return total
 
 class Solution2:
     def titleToNumber(self, columnTitle: str) -> int:
