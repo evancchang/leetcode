@@ -24,5 +24,16 @@ class Solution(object):
         else:
             return False
 
-t = Solution()
-print t.isPalindrome("A man, a plan, a canal: Panama")
+        
+class Solution2:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        s_list = s.strip()
+        
+        new_list = []
+        for ch in s_list:
+            if ('0' <= ch <= '9') or ('a' <= ch <= 'z'):
+                new_list.append(ch)
+                
+        return new_list == new_list[::-1]
+
