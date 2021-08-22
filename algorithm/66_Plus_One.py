@@ -24,6 +24,6 @@ class Solution2:
             
         total_list =[]
         for digit in str(total):
-            total_list.append(digit)
+            total_list.append(int(digit))
 
         return total_list
