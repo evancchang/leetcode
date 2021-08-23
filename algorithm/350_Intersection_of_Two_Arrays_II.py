@@ -1,19 +1,20 @@
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         ans = []
-        n1_map = {}
+        nums1_count = {}
         
-        for n in nums1:
-            if n not in n1_map.keys():
-                n1_map[n] = 1
+        for num in nums1:
+            if num not in nums1_count:
+                nums1_count[num] = 1
             else:
-                n1_map[n] += 1
+                nums1_count[num] += 1
                 
-        for n in nums2:
-            if n in n1_map.keys() and n1_map[n] > 0:
-                ans.append(n)
-                n1_map[n] -= 1
-                
+        for num in nums2:
+            if num in nums1_count:
+                if nums1_count[num] > 0:
+                    ans.append(num)
+                    nums1_count[num] -= 1
+                    
         return ans
         
         
