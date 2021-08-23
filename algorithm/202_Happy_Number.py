@@ -1,13 +1,12 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
-        got = set()
-        while n != 1 and n not in got:
-            got.add(n)
-            s = 0
+        appeared_num = set()
+        while n != 1 and n not in appeared_num:
+            appeared_num.add(n)
+            total = 0
             while n:
-                s += (n % 10) ** 2
+                total += (n % 10) ** 2
                 n //= 10
-                
-            n = s
-            
+            n = total
+        
         return n == 1
