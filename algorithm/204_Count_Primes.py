@@ -15,27 +15,20 @@ class Solution:
                 
 class Solution2:
     def countPrimes(self, n: int) -> int:
-        if n == 0:
-            prime = [False]
-        elif n == 1:
-            prime = [False, False]
-        else:
-            prime = [True for i in range(n)]
-            p = 2
-            while (p * p < n):
-                if prime[p]:
-                    for i in range(p + p, n, p):
-                        prime[i] = False
-                    
-                p += 1
-            prime[0] = False
-            prime[1] = False
+        if n == 0 or n == 1:
+            return 0
         
-        ans = 0
-        for i in range(n):
-            if prime[i]:
-                ans += 1
-                
-        return ans
+        primes = [True] * (n)
+        primes[0] = primes[1] = False
+        for i in range(2, int(n**0.5)+1):
+            if primes[i]:
+                for j in range(i+i, n, i):
+                    primes[j] = False
+                    
+        count = 0
+        for i in range(2, n):
+            if primes[i]:
+                count += 1
+        return count
         
                 
