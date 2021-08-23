@@ -12,7 +12,7 @@ class Solution:
             else:
                 chars.add(s[right])
                 right += 1                
-                l = max(l, len(chars))
+            l = max(l, len(chars))
             
         return l
 
