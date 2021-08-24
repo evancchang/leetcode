@@ -6,22 +6,15 @@ class Solution:
 
 class Solution2:
     def majorityElement(self, nums: List[int]) -> int:
-        num_counts = {}
-        major_count = 0
-        major_element = 0
+        num_count = {}
         
         for num in nums:
-            if num not in num_counts:
-                num_counts[num] = 1
+            if num in num_count:
+                num_count[num] += 1
             else:
-                num_counts[num] += 1
+                num_count[num] = 1
                 
-        times = len(nums) // 2
-        
-        for k, v in num_counts.items():
-            if v > times:
-                if v > major_count:
-                    major_count = v
-                    major_element = k
-                
-        return major_element
+        n = len(nums) // 2
+        for k, v in num_count.items():
+            if v > n:
+                return k
