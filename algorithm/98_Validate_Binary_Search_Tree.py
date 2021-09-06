@@ -1,3 +1,4 @@
+from collections import deque
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -10,18 +11,16 @@ class Solution:
         if not root:
             return False
         
-        
-        stack = [(root, float("-inf"), float("inf"))]
+        stack = deque([(root, float("-inf"), float("inf"))])
         while stack:
-            root, lower, upper = stack.pop()
+            root, lower, upper = stack.popleft()
             if not root:
                 continue
             val = root.val
             if val <= lower or val >= upper:
                 return False
-            stack.append((root.right, val, upper))
             stack.append((root.left, lower, val))
+            stack.append((root.right, val, upper))
             
-                
         return True
         
