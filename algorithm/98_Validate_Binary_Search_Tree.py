@@ -11,16 +11,16 @@ class Solution:
         if not root:
             return False
         
-        stack = deque([(root, float("-inf"), float("inf"))])
-        while stack:
-            root, lower, upper = stack.popleft()
+        q = deque([(root, float("-inf"), float("inf"))])
+        while q:
+            root, lower, upper = q.popleft()
             if not root:
                 continue
             val = root.val
             if val <= lower or val >= upper:
                 return False
-            stack.append((root.left, lower, val))
-            stack.append((root.right, val, upper))
+            q.append((root.left, lower, val))
+            q.append((root.right, val, upper))
             
         return True
         
