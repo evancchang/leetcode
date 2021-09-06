@@ -30,3 +30,31 @@ class Solution(object):
             
         return res
         
+from collections import deque        
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution2:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        if not root:
+            return []
+        
+        queue = deque([root])
+        res = []
+        
+        while queue:
+            curr_level = []
+            n = len(queue)
+            for i in range(n):
+                node = queue.popleft()
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+                curr_level.append(node.val)
+            res.append(curr_level)
+            
+        return res
