@@ -23,3 +23,22 @@ class Solution(object):
             return False
         return (left.val == right.val) and self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left)
         
+
+from collections import deque
+class Solution2:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        
+        q = deque([(root.left, root.right)])
+        while q:
+            node1, node2 = q.popleft()
+            if not node1 and not node2:
+                continue
+            if not node1 or not node2:
+                return False
+            if node1.val != node2.val:
+                return False
+            q.append((node1.left, node2.right))
+            q.append((node1.right, node2.left))
+        return True
