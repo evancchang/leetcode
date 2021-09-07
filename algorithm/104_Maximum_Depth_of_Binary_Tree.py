@@ -24,3 +24,10 @@ class Solution:
                 q.popleft()
             
         return depth
+
+class Solution2:
+    def maxDepth(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        # bottom-up
+        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
