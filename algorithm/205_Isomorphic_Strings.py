@@ -23,3 +23,25 @@ class Solution(object):
             
         return True
                 
+class Solution2:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        
+        s_map = {}
+        t_map = {}
+        
+        n = len(s)
+        for i in range(n):
+            s_map[s[i]] = t[i]
+            t_map[t[i]] = s[i]
+            
+        cmp_str1 = ''
+        for ch in s:
+            cmp_str1 += s_map[ch]
+            
+        cmp_str2 = ''
+        for ch in t:
+            cmp_str2 += t_map[ch]
+            
+        return (cmp_str1 == t) and (cmp_str2 == s)
