@@ -11,3 +11,13 @@ class Solution:
                 h[nums[i]] = i
                 
         return False
+
+class Solution2:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        num_idx = {}
+        for i, num in enumerate(nums):
+            if (num in num_idx) and (i - num_idx[num] <= k):
+                return True
+            num_idx[num] = i
+                
+        return False
