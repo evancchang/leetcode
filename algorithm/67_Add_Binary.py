@@ -10,5 +10,6 @@ class Solution(object):
 
         return out
 
-t = Solution()
-print t.addBinary('11', '1')
+class Solution2:
+    def addBinary(self, a: str, b: str) -> str:
+        return bin(int(a,2) + int(b,2))[2:]
