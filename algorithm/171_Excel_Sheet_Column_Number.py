@@ -19,7 +19,7 @@ class Solution2:
             total += char_num[columnTitle[-i-1]] * (26 ** i)
         return total
 
-    class Solution3:
+class Solution3:
     def titleToNumber(self, columnTitle: str) -> int:
         number = 0
         
