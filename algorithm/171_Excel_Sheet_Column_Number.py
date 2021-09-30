@@ -18,3 +18,11 @@ class Solution2:
         for i in range(n-1, -1, -1):
             total += char_num[columnTitle[-i-1]] * (26 ** i)
         return total
+
+    class Solution3:
+    def titleToNumber(self, columnTitle: str) -> int:
+        number = 0
+        
+        for i, ch in enumerate(columnTitle[::-1]):
+            number += (ord(ch) - ord('A') + 1) * (26**i)
+        return number
