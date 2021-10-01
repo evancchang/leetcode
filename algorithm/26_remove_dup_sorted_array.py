@@ -1,17 +1,13 @@
-class Solution(object):
-    def removeDuplicates(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        count = 0
-        for i in range(1, len(nums)):
-            if nums[i] != nums[count]:
-                count += 1
-                nums[count] = nums[i]
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        slow = 0
         
-        return count + 1
-
-t = Solution()
-print t.removeDuplicates([1,1,2,2,3])
-print t.removeDuplicates([])
+        for fast in range(1, len(nums)):
+            if nums[slow] != nums[fast]:
+                slow += 1
+                nums[slow] = nums[fast]
+                
+        return slow + 1
+            
+                
+            
