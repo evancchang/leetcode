@@ -45,3 +45,18 @@ class Solution2:
             cmp_str2 += t_map[ch]
             
         return (cmp_str1 == t) and (cmp_str2 == s)
+
+class Solution3:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        s_map = {}
+        t_map = {}
+        
+        for ch_s, ch_t in zip(s, t):
+            if (ch_s not in s_map) and (ch_t not in t_map):
+                s_map[ch_s] = ch_t
+                t_map[ch_t] = ch_s
+            else:
+                if s_map.get(ch_s) != ch_t or t_map.get(ch_t) != ch_s:
+                    return False
+                
+        return True    
