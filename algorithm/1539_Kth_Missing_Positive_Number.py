@@ -10,4 +10,4 @@ class Solution:
                     return i
                 
         remain = k - miss_count
-        return arr[-1] + remain
+        return max_val + remain
