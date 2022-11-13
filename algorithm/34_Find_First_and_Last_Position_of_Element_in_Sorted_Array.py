@@ -33,3 +33,36 @@ class Solution:
             else:
                 left = mid + 1
         return res
+
+class Solution2:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        def binary_search_left(nums, target):
+            left = 0
+            right = len(nums) - 1
+            while left <= right:
+                mid = (left+right) // 2
+                guess = nums[mid]
+                if guess < target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            return left
+
+        def binary_search_right(nums, target):
+            left = 0
+            right = len(nums) - 1
+            while left <= right:
+                mid = (left+right) // 2
+                guess = nums[mid]
+                if guess <= target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            return right
+
+        start_pos = binary_search_left(nums, target)
+        end_pos = binary_search_right(nums, target)
+        if start_pos <= end_pos:
+            return [start_pos, end_pos]
+        else:
+            return [-1, -1]    
