@@ -1,21 +1,21 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        left, right = 0, 0
-        chars = set() # use set to add/remove item, the bigO is O(1) average
-        
-        l = 0
-        while left < len(s) and right < len(s):
-            if s[right] in chars:
-                if s[left] in chars:
-                    chars.remove(s[left])
-                    left += 1
-            else:
-                chars.add(s[right])
-                right += 1                
-            l = max(l, len(chars))
-            
-        return l
+        ch_set = set() # use set to add/remove item, the bigO is O(1) average
+        left = right = 0
+        length = 0
+        n = len(s)
 
+        while left < n and right < n:
+            if s[right] not in ch_set:
+                ch_set.add(s[right])
+                right += 1
+            else:
+                if s[left] in ch_set:
+                    ch_set.remove(s[left])
+                    left += 1
+            length = max(length, len(ch_set))
+        return length    
+    
 class Solution2:
     def lengthOfLongestSubstring(self, s: str) -> int:
         ans = 0
