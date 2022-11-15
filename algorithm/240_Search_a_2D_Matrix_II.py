@@ -6,26 +6,25 @@ class Solution:
                     return True
         return False        
 
-class Solution2:
+class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        for m in matrix:
-            print(f'm = {m}')
-            if self.binarySearch(m, target):
+        for mat in matrix:
+            result = self.binary_search(mat, target)
+            if result:
+                return result
+        return result
+
+    def binary_search(self, lis, target):
+        left = 0
+        right = len(lis) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+            guess = lis[mid]
+            if guess == target:
                 return True
-        return False
-    
-    def binarySearch(self, l, item):
-        low = 0
-        high = len(l) - 1
-        
-        while low <= high:
-            mid = (low + high) // 2
-            guess = l[mid]
-            if guess == item:
-                return True
-            elif guess > item:
-                high = mid - 1
+            elif guess > target:
+                right = mid - 1
             else:
-                low = mid + 1
-                
-        return False   
+                left = mid + 1
+        return False 
