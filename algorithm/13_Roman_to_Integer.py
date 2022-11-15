@@ -5,13 +5,12 @@ class Solution:
         
         n = len(s)
         total = roman_to_int[s[n-1]]
-        
         for i in range(n-1, 0, -1):
             curr = roman_to_int[s[i]]
             prev = roman_to_int[s[i-1]]
-            if curr > prev:
-                total -= prev
-            else:
+            if curr <= prev:
                 total += prev
-                
+            else:
+                total -= prev
+
         return total
