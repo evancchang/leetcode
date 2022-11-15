@@ -13,3 +13,19 @@ class Solution:
         
         return '/' + '/'.join(stack)
         
+class Solution2:
+    def simplifyPath(self, path: str) -> str:
+        path_list = path.split('/')
+        stack = []
+
+        for ch in path_list:
+            if ch == '' or ch == '.':
+               continue
+            elif ch == '..' and not stack:
+                continue
+            elif ch == '..' and stack:
+                stack.pop()
+            else:
+                stack.append(ch)
+
+        return '/' + '/'.join(stack)
