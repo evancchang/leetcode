@@ -8,16 +8,15 @@ class Solution:
         else:
             digits[-1] += 1
             return digits
-        
+
 class Solution2:
     def plusOne(self, digits: List[int]) -> List[int]:
-        s = ''
-        for d in digits:
-            s += str(d)
-        
-        s = int(s) + 1
+        total = 0
+        for digit in digits:
+            total = total*10 + digit
+
+        total += 1
         ans = []
-        for ch in str(s):
-            ans.append(int(ch))
-            
+        for d in str(total):
+            ans.append(int(d))
         return ans
