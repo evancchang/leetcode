@@ -1,18 +1,15 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        tri_list = []
+        ans = []
         for i in range(1, numRows + 1):
             if i == 1:
-                tri_list.append([1])
+                tmp = [1]
             elif i == 2:
-                tri_list.append([1,1])
+                tmp = [1,1]
             else:
-                prev = tri_list[-1]
-                curr = [1] * i
-                for j in range(len(prev) - 1):
-                    curr[j+1] = prev[j] + prev[j+1]
-                tri_list.append(curr)
-                
-        return tri_list
-                
+                tmp = [1] * i
+                for i in range(i - 2):
+                    tmp[i+1] = ans[-1][i] + ans[-1][i+1]
+            ans.append(tmp)
+        return ans
         
